@@ -1,0 +1,31 @@
+.KanbanBoard {
+  @include align-items(stretch);
+  @include display(flex);
+  .KanbanColumn {
+    margin-right: 10px;
+  }
+
+  color: $text-color;
+}
+
+.KanbanColumn {
+  background-color: $light-gray;
+  @media only screen and (min-width: 900px) {
+  	min-width: 300px;
+  }
+}
+
+.KanbanColumn-cards, .KanbanColumn-name { padding: 5px; }
+
+.KanbanColumn-cards {
+  .KanbanCard {
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 5px;
+  }
+}
+
+.KanbanCard, .KanbanColumn {
+  border-radius: 2px;
+}
+

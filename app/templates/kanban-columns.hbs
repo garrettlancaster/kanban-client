@@ -1,0 +1,17 @@
+{{#each model as |column|}}
+  <div class="KanbanColumn">
+    <div class="KanbanColumn-name">
+      {{column.name}}
+    </div>
+    <div class="KanbanColumn-cards">
+      {{#each column.cards as |card|}}
+        <div class="KanbanCard">
+          <div class="KanbanCard-title">
+            {{card.title}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}
+{{outlet}}
