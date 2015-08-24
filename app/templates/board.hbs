@@ -1,5 +1,5 @@
-<h1>{{model.name}}</h1>
+<h1 class='PageTitle'>{{model.name}}</h1>
 
-<div class="KanbanBoard">
+{{#kanban-board moveCard='moveCard'}}
   {{outlet}}
-</div>
+{{/kanban-board}}

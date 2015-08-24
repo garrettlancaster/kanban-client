@@ -5,9 +5,9 @@ let KanbanColumn = DS.Model.extend({
   name: DS.attr('string'),
   board: DS.belongsTo('board', {inverse: 'kanbanColumns'}),
   position: DS.attr('number'),
-  cardMemberships: DS.hasMany('column-membership', {embedded: 'always'}),
-  cards: Ember.computed('cardMemberships.[]', function(){
-    return this.get('cardMemberships').mapBy('kanbanCard');
+  kanbanCards: DS.hasMany('kanban-card', {async: true}),
+  sortedKanbanCards: Ember.computed('kanbanCards.@each.position', function(){
+    return this.get('kanbanCards').sortBy('position');
   })
 });
 

@@ -1,28 +1,36 @@
 .KanbanBoard {
-  @include align-items(stretch);
   @include display(flex);
+  color: $text-color;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+
   .KanbanColumn {
     margin-right: 10px;
   }
 
-  color: $text-color;
 }
 
 .KanbanColumn {
   background-color: $light-gray;
-  @media only screen and (min-width: 900px) {
-  	min-width: 300px;
-  }
+  min-width: 250px;
+  max-width: 500px;
+  @include display(flex);
+  @include flex-direction(column);
+  @include flex(1);
 }
 
 .KanbanColumn-cards, .KanbanColumn-name { padding: 8px; }
 
 .KanbanColumn-cards {
-  .KanbanCard {
-    padding: 8px;
-    background-color: white;
-    margin-bottom: 8px;
-  }
+  height: 100%;
+  @include flex(1);
+}
+
+.KanbanCard {
+  padding: 8px;
+  background-color: white;
+  margin-bottom: 8px;
+  cursor: grab;
 }
 
 .KanbanCard, .KanbanColumn {

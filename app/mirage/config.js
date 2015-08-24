@@ -1,26 +1,50 @@
 export default function() {
   this.get('/boards');
+
   this.get('/boards/:id', function(db, request){
-    let board_id = request.params.id;
-    let board = db.boards.find(board_id);
+    let board_id  = request.params.id;
+    let board     = db.boards.find(board_id);
     let columnIds = db.kanban_columns.where({board_id: board_id}).mapBy('id'); 
+
     board.kanban_column_ids = columnIds;
+
     return {
       board: board
     }
   });
-  this.get('/kanban_columns/:id', function(db, request){
-    let columnId = request.params.id;
-    let column = db.kanban_columns.find(columnId);
-    let memberships = db.column_memberships.where({kanban_column_id: columnId});
-    column.card_membership_ids = memberships.mapBy('id');
+
+  this.put('/kanban_cards/:id', function(db, request){
+    const formBody = JSON.parse(request.requestBody);
+    console.log(formBody);
+    return {}
+  });
+
+
+  this.get('/kanban_columns/:id');
+
+  this.get('/kanban_cards/:id');
+
+  this.timing = 900;
+  this.post('/card_moves', function(db, request){
+    const formBody = JSON.parse(request.requestBody).card_move;
+    let card       = db.kanban_cards.find(formBody.kanban_card_id);
+    let oldColumn  = db.kanban_columns.where({id: card.kanban_column_id}).get('firstObject');
+    let newColumn  = db.kanban_columns.where({id: formBody.new_column_id}).get('firstObject');
+
+    card.position         = formBody.new_index;
+    card.kanban_column_id = formBody.new_column_id;
+
     return {
-      kanban_column: column,
-      column_memberships: memberships
+      kanban_cards: [
+        card
+      ],
+      kanban_columns: [
+        oldColumn,
+        newColumn
+      ]
     }
   });
 
-  this.get('/kanban_cards/:id')
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

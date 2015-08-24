@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
 
+  // load the kanban board by default
   this.resource('board', {path: ''}, function(){
     this.resource('kanban-columns', {path: ''});
   });

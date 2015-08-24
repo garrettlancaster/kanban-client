@@ -16,5 +16,8 @@
     "lodash": "~3.7.0",
     "Faker": "~3.0.0",
     "bourbon": "4.2.3"
+  },
+  "devDependencies": {
+    "dragula": "~3.0.3"
   }
 }

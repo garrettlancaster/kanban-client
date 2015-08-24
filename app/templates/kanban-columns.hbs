@@ -3,9 +3,9 @@
     <div class="KanbanColumn-name">
       {{column.name}}
     </div>
-    <div class="KanbanColumn-cards">
-      {{#each column.cards as |card|}}
-        <div class="KanbanCard">
+    <div class="KanbanColumn-cards" data-id={{column.id}}>
+      {{#each column.sortedKanbanCards as |card|}}
+        <div class="KanbanCard" data-id={{card.id}}>
           <div class="KanbanCard-title">
             {{card.title}}
           </div>

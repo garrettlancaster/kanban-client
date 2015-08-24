@@ -1,17 +1,13 @@
-/*
- * Font Face
- */
-
+// Font Faces
 @mixin custom-font-face($family, $name, $style, $weight: 300){
-
-    @font-face{
-        font-family: $family;
-        src:url('/assets/fonts/#{$family}/#{$name}.eot');
-        src:url('/assets/fonts/#{$family}/#{$name}.eot?#iefix') format('embedded-opentype'),
-            url('/assets/fonts/#{$family}/#{$name}.woff') format('woff'),
-            url('/assets/fonts/#{$family}/#{$name}.ttf') format('truetype'),
-            url('/assets/fonts/#{$family}/#{$name}.svg#icon') format('svg');
-        font-weight: $weight;
-        font-style: $style;
-    }
+  @font-face{
+    font-family: $family;
+    src:url('/assets/fonts/#{$family}/#{$name}.eot');
+    src:url('/assets/fonts/#{$family}/#{$name}.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/#{$family}/#{$name}.woff') format('woff'),
+        url('/assets/fonts/#{$family}/#{$name}.ttf') format('truetype'),
+        url('/assets/fonts/#{$family}/#{$name}.svg#icon') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
 }

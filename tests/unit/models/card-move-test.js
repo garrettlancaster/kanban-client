@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('column-membership', 'Unit | Model | column membership', {
+moduleForModel('card-move', 'Unit | Model | card move', {
   // Specify the other units that are required for this test.
-  needs: ['model:kanban-column', 'model:kanban-card']
+  needs: ['model:new-column']
 });
 
 test('it exists', function(assert) {
